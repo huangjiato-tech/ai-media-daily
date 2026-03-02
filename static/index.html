@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>传媒人自己的 AI 日报 — 全球传媒行业人工智能应用资讯</title>
+  <meta name="description" content="面向传媒从业者的 AI 行业日报，DeepSeek 自动筛选全球资讯并生成中文摘要" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📰</text></svg>" />
+</head>
+<body>
+
+<!-- Reading progress bar -->
+<div class="progress-bar" id="progress-bar"></div>
+
+<!-- Navbar -->
+<header class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-brand">
+      <span class="brand-en">AI MEDIA</span>
+      <span class="brand-sep">/</span>
+      <span class="brand-zh">传媒日报</span>
+    </div>
+    <div class="navbar-actions">
+      <span class="update-time" id="update-time"></span>
+      <button class="refresh-btn" id="refresh-btn" aria-label="刷新新闻">
+        <span class="refresh-icon">↻</span>刷新
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+  </div>
+  <div class="hero-content" id="hero-content">
+    <p class="hero-eyebrow" id="current-date"></p>
+    <h1 class="hero-title">
+      <span class="hero-title-en">AI Daily for Media Professionals</span>
+      <span class="hero-title-zh">传媒人自己的 AI 日报</span>
+    </h1>
+    <p class="hero-tagline" id="hero-tagline">全球传媒行业 AI 应用每日精选</p>
+    <div class="hero-pills">
+      <span class="hero-pill">DeepSeek 精选</span>
+      <span class="hero-pill-dot">·</span>
+      <span class="hero-pill">全球 5 大区域</span>
+      <span class="hero-pill-dot">·</span>
+      <span class="hero-pill">每小时更新</span>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-hint-line"></div>
+    <span class="scroll-hint-text">Scroll</span>
+  </div>
+</section>
+
+<!-- Region Tabs -->
+<nav class="region-nav" id="region-nav">
+  <div class="region-nav-inner" id="region-nav-inner">
+    <button class="region-tab active" data-region="中国">
+      <span class="tab-dot" style="--dot:#EF4444"></span>中国
+    </button>
+    <button class="region-tab" data-region="日本">
+      <span class="tab-dot" style="--dot:#EC4899"></span>日本
+    </button>
+    <button class="region-tab" data-region="韩国">
+      <span class="tab-dot" style="--dot:#8B5CF6"></span>韩国
+    </button>
+    <button class="region-tab" data-region="欧美">
+      <span class="tab-dot" style="--dot:#10B981"></span>欧美
+    </button>
+    <span class="tab-ink" id="tab-ink"></span>
+  </div>
+</nav>
+
+<!-- Main content -->
+<main id="main-content">
+  <div id="error-msg" class="error-msg" style="display:none"></div>
+  <div id="news-container"></div>
+</main>
+
+<!-- Twitter / X Section -->
+<section class="twitter-section" id="twitter-section" style="display:none">
+  <div class="twitter-header">
+    <h2 class="twitter-title">
+      <span class="twitter-x-icon">𝕏</span> 业界观点
+    </h2>
+    <p class="twitter-sub">来自全球传媒人的即时声音 · 中英对照</p>
+  </div>
+  <div class="twitter-scroll-area" id="twitter-scroll-area">
+    <div class="twitter-track" id="twitter-track"></div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p class="footer-brand">传媒人自己的 AI 日报</p>
+    <p class="footer-tagline">内容由 AI 聚合筛选，仅供参考 · 数据每 60 分钟自动更新</p>
+    <p class="footer-sources">Google News · 36氪 · 虎嗅 · 量子位 · 机器之心 · 钛媒体 · Digiday · NiemanLab · Axios</p>
+    <div class="footer-copyright">
+      © 2025 <a href="https://xiaoyanlab.netlify.app/" target="_blank" rel="noopener noreferrer" class="footer-link">小焱文化</a> 开发制作
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="back-to-top" aria-label="回到顶部">↑</button>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
