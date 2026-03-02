@@ -916,6 +916,17 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.7;
 }
 
+.footer-story {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+  max-width: 520px;
+  margin: 8px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
 .footer-copyright {
   margin-top: 8px;
   padding-top: 16px;
