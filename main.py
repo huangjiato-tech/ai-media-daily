@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 
 from fastapi import FastAPI, Query
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 
 from cache import cache
@@ -69,6 +69,11 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="AI传媒日报", lifespan=lifespan)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+
+@app.get("/624f42be81b12a53c4414ce77289839d.txt")
+async def wechat_verify():
+    return PlainTextResponse("675fdae05e7c8b887d4fb822f6df55b21a17e02d")
 
 
 @app.get("/")
