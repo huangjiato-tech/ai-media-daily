@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 import feedparser
 import httpx
 
-_ARTICLE_MAX_AGE_DAYS = 30
+_ARTICLE_MAX_AGE_HOURS = 48
 
 _GOOGLE_NEWS_RE = re.compile(r'^"[^"]+" - (Google.+)$')
 
@@ -81,7 +81,7 @@ def _is_recent(pub_str: str) -> bool:
     try:
         from email.utils import parsedate_to_datetime
         d = parsedate_to_datetime(pub_str)
-        cutoff = datetime.now(timezone.utc) - timedelta(days=_ARTICLE_MAX_AGE_DAYS)
+        cutoff = datetime.now(timezone.utc) - timedelta(hours=_ARTICLE_MAX_AGE_HOURS)
         return d >= cutoff
     except Exception:
         return True
